@@ -6,6 +6,7 @@ dist/
 
 # Vite cache
 .vite/
+*.tsbuildinfo
 
 # Local environment files
 .env
