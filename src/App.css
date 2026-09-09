@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Estilos Globais e Reset (Apostila - Seção 1.6, Página 10)
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -12,12 +15,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Container central da aplicação */
 .app {
   width: min(900px, 92%);
   margin: 0 auto;
   padding: 48px 0;
 }
 
+/* ==========================================================================
+   Cabeçalho Principal (Hero)
+   ========================================================================== */
 .hero {
   margin-bottom: 28px;
 }
@@ -44,11 +51,17 @@ body {
   font-size: 1.05rem;
 }
 
+/* ==========================================================================
+   Lista de Hábitos (HabitList)
+   ========================================================================== */
 .habit-list {
   display: grid;
   gap: 16px;
 }
 
+/* ==========================================================================
+   Cartão de Hábito (HabitCard - Apostila Seções 1.6, 2.6, 4.3)
+   ========================================================================== */
 .habit-card {
   display: flex;
   align-items: center;
@@ -79,6 +92,7 @@ body {
   font-size: 0.95rem;
 }
 
+/* Estilização condicional quando completed === true */
 .habit-card.is-complete {
   border-color: #78b87a;
   background: #f0fff2;
@@ -88,6 +102,7 @@ body {
   font-weight: 700;
 }
 
+/* Botão de ação do cartão (Alternar status: Concluir / Desmarcar) */
 .habit-card button {
   padding: 10px 18px;
   font-family: inherit;
@@ -107,4 +122,32 @@ body {
 
 .habit-card button:active {
   transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Container Reutilizável (Panel - Apostila Seção 3.5, Página 25)
+   ========================================================================== */
+.panel {
+  overflow: hidden;
+  border: 1px solid #d7dde5;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.panel-header,
+.panel-content {
+  padding: 20px;
+}
+
+.panel-header {
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafbfc;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
 }
