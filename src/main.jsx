@@ -2,17 +2,20 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { HabitsProvider } from "./context/HabitsContext";
 
 /**
- * Ponto de Entrada da Aplicação (Apostila - Seção 1.5: Estrutura do projeto)
+ * Ponto de Entrada da Aplicação (Apostila - Seção 7.3: Posicionando o Provider)
  *
- * - createRoot: Conecta a aplicação React ao elemento DOM raiz com id="root" presente em index.html.
- * - StrictMode: Ferramenta de desenvolvimento do React que ativa verificações e avisos adicionais
- *   para identificar potenciais problemas no ciclo de vida e renderização.
- * - Renderiza o componente principal <App /> dentro da árvore.
+ * - HabitsProvider: Envolve o componente App para fornecer o contexto de hábitos a toda a árvore.
+ *   Dessa forma, qualquer componente filho (como HabitList, HabitForm ou App) pode
+ *   acessar os hábitos e suas ações diretamente via useContext sem a necessidade de passar props intermediárias.
+ * - StrictMode: Ajuda a identificar efeitos colaterais e más práticas em ambiente de desenvolvimento.
  */
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <HabitsProvider>
+      <App />
+    </HabitsProvider>
   </StrictMode>,
 );

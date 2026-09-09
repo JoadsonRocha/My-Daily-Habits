@@ -151,3 +151,73 @@ body {
   font-weight: 700;
   color: #111827;
 }
+
+/* Espaçamento entre painéis consecutivos */
+.panel + .panel {
+  margin-top: 24px;
+}
+
+/* ==========================================================================
+   Formulário de Hábitos (HabitForm - Apostila Seção 5.5, Página 35)
+   ========================================================================== */
+.habit-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #1f2937;
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+}
+
+.form-error {
+  margin: 0;
+  color: #b42318;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.habit-form button {
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1f2937;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-self: start;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.habit-form button:hover {
+  background-color: #374151;
+}
+
+.habit-form button:active {
+  transform: scale(0.98);
+}
+

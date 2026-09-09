@@ -1,17 +1,31 @@
+import { useContext } from "react";
+import { HabitsContext } from "../context/HabitsContext";
 import HabitCard from "./HabitCard";
 
 /**
- * Componente HabitList (Apostila - Seção 2.5 e 4.3: Listas, Chaves e Repasse de Callbacks)
+ * Componente HabitList (Apostila - Seção 7.4: Consumindo com useContext)
  *
- * Responsável por renderizar a coleção de cartões de hábitos:
- * - Recebe o array `habits` e a função callback `onToggle`.
- * - Trata o estado vazio através de renderização condicional inicial (guard clause).
- * - Itera sobre o array com `.map()` gerando componentes <HabitCard />.
- * - Utiliza chaves únicas e estáveis (`key={habit.id}`) para reconciliação no React.
- * - Encaminha a função de callback `onToggle` para cada item filho.
+ * Responsabilidades:
+ * - Obter a lista de hábitos e a ação 'toggleHabit' diretamente do HabitsContext.
+ * - Eliminar o prop drilling (não precisa mais receber habits nem onToggle via props do pai).
+ * - Garantir a integridade verificando se está sendo executado sob o HabitsProvider.
+ * - Renderizar a coleção mapeada para componentes <HabitCard />.
  */
-export default function HabitList({ habits, onToggle }) {
-  // Renderização condicional: caso a lista esteja vazia, exibe mensagem informativa
+export default function HabitList() {
+  /**
+   * Consumo do Contexto via useContext:
+   * Acessa os valores fornecidos pelo HabitsProvider mais próximo na árvore de componentes.
+   */
+  const habitsContext = useContext(HabitsContext);
+
+  // Verificação defensiva: lança erro explícito se o componente for usado fora do Provider
+  if (!habitsContext) {
+    throw new Error("HabitList precisa estar dentro de HabitsProvider.");
+  }
+
+  const { habits, toggleHabit } = habitsContext;
+
+  // Renderização condicional para caso de lista vazia
   if (habits.length === 0) {
     return <p>Nenhum hábito cadastrado.</p>;
   }
@@ -19,19 +33,16 @@ export default function HabitList({ habits, onToggle }) {
   return (
     <section className="habit-list" aria-label="Hábitos de hoje">
       {/* 
-        Transformação de dados em elementos visuais com .map():
-        - Cada item do array 'habits' é transformado em um componente <HabitCard />.
-        - key={habit.id}: Obrigatório no React para identificar cada elemento de forma única e estável.
-          Evita re-renderizações desnecessárias e problemas de sincronização do DOM.
-        - {...habit}: Spread operator que espalha as propriedades do objeto (id, title, goal, completed)
-          diretamente como props individuais para o HabitCard.
-        - onToggle={onToggle}: Encaminha o callback para permitir que o card avise quando foi clicado.
+        Mapeamento dos hábitos para componentes HabitCard:
+        - key={habit.id}: chave de reconciliação única.
+        - {...habit}: distribui as propriedades do objeto (id, title, goal, completed) como props.
+        - onToggle={toggleHabit}: conecta a ação do card diretamente à função do contexto.
       */}
       {habits.map((habit) => (
         <HabitCard
           key={habit.id}
           {...habit}
-          onToggle={onToggle}
+          onToggle={toggleHabit}
         />
       ))}
     </section>
