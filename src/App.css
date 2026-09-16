@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Estilos Globais e Reset (Apostila - Seção 1.6, Página 10)
+   Estilos Globais e Reset
    ========================================================================== */
 * {
   box-sizing: border-box;
@@ -10,13 +10,13 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #f4f6f8;
-  color: #1f2937;
+  background: #f8fafc;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   Shell e Cabeçalho de Navegação (Apostila - Seção 8.4, Página 56)
+   Shell e Cabeçalho de Navegação
    ========================================================================== */
 .app-shell {
   min-height: 100vh;
@@ -28,314 +28,695 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 16px 4%;
-  border-bottom: 1px solid #d7dde5;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 5%;
+  border-bottom: 1px solid #e2e8f0;
   background: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.app-header strong {
-  font-size: 1.15rem;
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand strong {
+  font-size: 1.25rem;
   font-weight: 800;
-  color: #111827;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: #059669;
+  font-weight: 600;
 }
 
 .app-header nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .app-header a {
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 8px;
-  color: #4b5563;
+  color: #475569;
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
 }
 
 .app-header a:hover {
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: #f1f5f9;
+  color: #0f172a;
 }
 
-/* Estilo ativo fornecido pelo NavLink quando a rota coincide com a URL atual */
 .app-header a.active {
-  background: #1f2937;
+  background: #0f172a;
   color: #ffffff;
 }
 
-/* Container central das páginas */
 .app {
-  width: min(900px, 92%);
+  width: min(960px, 92%);
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 36px 0;
   flex: 1;
 }
 
+.app-footer {
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 20px 5%;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
 /* ==========================================================================
-   Cabeçalho Principal (Hero)
+   Hero & Estatísticas
    ========================================================================== */
 .hero {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .eyebrow {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   letter-spacing: 0.12em;
-  color: #4b5563;
+  color: #059669;
   margin: 0 0 8px 0;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin: 0 0 8px 0;
-  color: #111827;
-  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
-.hero p:not(.eyebrow) {
-  margin: 0;
-  color: #4b5563;
-  font-size: 1.05rem;
+.hero-description {
+  margin: 0 0 20px 0;
+  color: #475569;
+  font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   Lista de Hábitos (HabitList)
-   ========================================================================== */
-.habit-list {
+.stats-container {
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 /* ==========================================================================
-   Cartão de Hábito (HabitCard - Apostila Seções 1.6, 2.6, 4.3, 9.2)
+   Barra de Controles & Filtro
    ========================================================================== */
-.habit-card {
+.controls-bar {
+  margin-bottom: 24px;
+}
+
+.category-filter {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 20px 24px;
-  border: 1px solid #d7dde5;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.habit-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.habit-card h2 {
-  margin: 0 0 4px 0;
-  font-size: 1.2rem;
+.category-filter label {
   font-weight: 600;
-  color: #1f2937;
-}
-
-.habit-card p {
-  margin: 0;
-  color: #6b7280;
   font-size: 0.95rem;
+  color: #334155;
 }
 
-/* Link para página de detalhes do hábito */
-.habit-card a {
-  display: inline-block;
-  margin-top: 6px;
-  color: #2563eb;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.habit-card a:hover {
-  text-decoration: underline;
-}
-
-/* Estilização condicional quando completed === true */
-.habit-card.is-complete {
-  border-color: #78b87a;
-  background: #f0fff2;
-}
-
-.habit-status {
-  font-weight: 700;
-}
-
-/* Botão de ação do cartão (Alternar status: Concluir / Desmarcar) */
-.habit-card button {
-  padding: 10px 18px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #1f2937;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.habit-card button:hover {
-  background-color: #374151;
-}
-
-.habit-card button:active {
-  transform: scale(0.98);
-}
-
-/* ==========================================================================
-   Container Reutilizável (Panel - Apostila Seção 3.5, Página 25)
-   ========================================================================== */
-.panel {
-  overflow: hidden;
-  border: 1px solid #d7dde5;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.panel-header,
-.panel-content {
-  padding: 20px;
-}
-
-.panel-header {
-  border-bottom: 1px solid #e5e7eb;
-  background: #fafbfc;
-}
-
-.panel-header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #111827;
-}
-
-.panel + .panel {
-  margin-top: 24px;
-}
-
-/* ==========================================================================
-   Formulário de Hábitos (HabitForm - Apostila Seção 5.5, Página 35)
-   ========================================================================== */
-.habit-form {
-  display: grid;
-  gap: 16px;
-}
-
-.field {
-  display: grid;
-  gap: 6px;
-}
-
-.field label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #374151;
-}
-
-.field input {
-  width: 100%;
-  padding: 10px 12px;
+.filter-select {
+  padding: 8px 14px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font: inherit;
   font-size: 0.95rem;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: #f8fafc;
+  color: #0f172a;
+  cursor: pointer;
 }
 
-.field input:focus {
+.filter-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Painel Reutilizável
+   ========================================================================== */
+.panel {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.panel-title {
+  margin: 0;
+  padding: 16px 22px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.panel-content {
+  padding: 22px;
+}
+
+/* ==========================================================================
+   Lista e Cartões de Tarefa
+   ========================================================================== */
+.task-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.task-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px 20px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.15s ease;
+}
+
+.task-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.task-card.is-complete {
+  border-left: 6px solid #10b981;
+  background: #f0fdf4;
+}
+
+.task-card.is-pending {
+  border-left: 6px solid #f59e0b;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.category-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.category-limpeza {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.category-pintura {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.category-jardim {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.category-doacao {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.volunteers-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.task-status {
+  font-weight: 700;
+}
+
+.task-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.task-link:hover {
+  text-decoration: underline;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn-toggle {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.btn-toggle:hover {
+  background: #334155;
+}
+
+.btn-delete {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  background: #059669;
+  color: #ffffff;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #047857;
+}
+
+.btn-secondary {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  background: #e2e8f0;
+  color: #1e293b;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+}
+
+/* ==========================================================================
+   Formulário de Tarefa
+   ========================================================================== */
+.task-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-group {
+  display: grid;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.95rem;
+  background: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
-  border-color: #1f2937;
-  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+.form-group-checkbox {
+  margin: 6px 0;
+}
+
+.form-group-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
 .form-error {
-  margin: 0;
-  color: #b42318;
-  font-weight: 700;
+  padding: 10px 14px;
+  background: #fee2e2;
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
+  border-radius: 6px;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
-.habit-form button {
-  padding: 12px 20px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #1f2937;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  justify-self: start;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.habit-form button:hover {
-  background-color: #374151;
-}
-
-.habit-form button:active {
-  transform: scale(0.98);
-}
-
 /* ==========================================================================
-   Página de Detalhes e Botões Gerais
+   Página de Detalhes
    ========================================================================== */
-article button,
-section button {
-  padding: 10px 18px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #1f2937;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.task-details-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-article button:hover,
-section button:hover {
-  background-color: #374151;
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
 
-/* ==========================================================================
-   Sugestões Externas (SuggestionsPage - Apostila Seção 11.3, Página 72)
-   ========================================================================== */
-.suggestion-list {
-  padding-left: 20px;
-  display: grid;
-  gap: 10px;
-  margin-top: 16px;
+.details-title {
+  margin: 0 0 20px 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
 }
 
-.suggestion-list li {
-  color: #374151;
+.details-meta p {
+  margin: 8px 0;
+  color: #334155;
   font-size: 1rem;
 }
 
-.error-state {
-  padding: 16px 20px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-  color: #991b1b;
-  margin: 16px 0;
+.details-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
 }
 
-.error-state p {
-  margin: 0 0 12px 0;
+.details-divider {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 28px 0;
+}
+
+.navigation-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn-history-back {
+  padding: 10px 16px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.btn-history-back:hover {
+  background: #e2e8f0;
+}
+
+.link-fixed-destination {
+  color: #059669;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.link-fixed-destination:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Relatório e Estatísticas
+   ========================================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box.highlight {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.stat-big {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.stat-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #475569;
+  margin-top: 4px;
+}
+
+.stat-box p {
+  margin: 8px 0 0 0;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.category-report-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.92rem;
+}
+
+th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Sugestões (API) & Estados
+   ========================================================================== */
+.status-box {
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.loading-box {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  color: #475569;
+}
+
+.error-box {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.btn-retry {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-retry:hover {
+  background: #b91c1c;
+}
+
+.sugestoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.sugestao-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sugestao-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+  flex: 1;
+}
+
+.btn-adopt {
+  padding: 8px 14px;
+  background: #059669;
+  color: #ffffff;
+  font-size: 0.88rem;
+}
+
+.btn-adopt:hover {
+  background: #047857;
+}
+
+/* ==========================================================================
+   Página Sobre & Reflexão
+   ========================================================================== */
+.author-reflection blockquote {
+  margin: 0;
+  padding: 16px 20px;
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #166534;
+  line-height: 1.6;
+}
+
+.author-signature {
+  margin-top: 10px;
+  text-align: right;
+  font-weight: 700;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.tech-list {
+  padding-left: 20px;
+  line-height: 1.8;
+  color: #334155;
+}
+
+/* ==========================================================================
+   Layouts e Not Found
+   ========================================================================== */
+.section-banner {
+  margin-bottom: 24px;
+}
+
+.section-banner h2 {
+  margin: 4px 0 0 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.not-found-page,
+.not-found-card {
+  text-align: center;
+  padding: 48px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 20px;
+  color: #64748b;
+  font-weight: 500;
 }
