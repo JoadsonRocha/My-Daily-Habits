@@ -1,18 +1,12 @@
-# My Daily Habits
 # Mutirão do Bairro — Painel do Joadson
 
-Projeto desenvolvido no **Módulo 04 - Desenvolvimento Front-end com React** da **Capacitação em Desenvolvimento Full Stack**.
 Aplicação Single Page Application (SPA) para gestão de tarefas comunitárias em mutirões de bairro, desenvolvida como **Atividade Final do Módulo 04 (Front-end com React)** da Capacitação em Desenvolvimento Full Stack (ITEAM 2026, Boa Vista/RR).
 
-Professor: Esp. Virgílio do Rego Monteiro Borges Junior
 Desenvolvido por: **Joadson Rocha**  
 Professor: **Esp. Virgílio do Rego Monteiro Borges Junior**
 
 ---
 
-## 📋 Requisitos
-- Node.js (versão LTS atual compatível com o Vite)
-- npm
 ## 🚀 Funcionalidades
 
 - **Quadro de Tarefas Comunitárias:** Visualização das ações com distinção visual entre concluídas e pendentes.
@@ -38,14 +32,8 @@ Professor: **Esp. Virgílio do Rego Monteiro Borges Junior**
 
 ---
 
-## 🚀 Como executar o projeto localmente
 ## 🛠️ Tecnologias e Escopo
 
-1. Clone o repositório e acesse a pasta:
-   ```bash
-   git clone https://github.com/SEU-USUARIO/my-daily-habits.git
-   cd my-daily-habits
-   ```
 - **React 19**
 - **React Router 8**
 - **Vite 8**
@@ -53,27 +41,14 @@ Professor: **Esp. Virgílio do Rego Monteiro Borges Junior**
 - **Fetch API** com `AbortController`
 - *Estritamente dentro do escopo pedagógico* (sem dependências de estado externas, sem bibliotecas de componentes e sem TypeScript).
 
-2. Instale as dependências do projeto:
-   ```bash
-   npm install
-   ```
 ---
 
-3. Crie o arquivo de variáveis de ambiente a partir do modelo:
-   ```bash
-   cp .env.example .env
-   ```
 ## ⚙️ Instalação e Execução
 
-4. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
 ### Pré-requisitos
 - Node.js (v22+)
 - npm
 
-5. Abra a URL informada pelo terminal (geralmente `http://localhost:5173/`).
 ### 1. Clonar e Instalar Dependências
 ```bash
 git clone https://github.com/JoadsonRocha/My-Daily-Habits.git
@@ -82,20 +57,17 @@ git checkout mutirao-do-bairro
 npm install
 ```
 
----
 ### 2. Configurar Variáveis de Ambiente
 Copie o arquivo de exemplo e crie o `.env`:
 ```bash
 cp .env.example .env
 ```
 
-## 🛠️ Build e Produção
 Conteúdo de `.env`:
 ```env
 VITE_API_BASE_URL=https://jsonplaceholder.typicode.com
 ```
 
-Para gerar e validar os arquivos otimizados de produção:
 ### 3. Executar o Servidor de Desenvolvimento
 ```bash
 npm run dev
@@ -110,27 +82,8 @@ npm run preview
 
 ---
 
-## ✨ Funcionalidades Desenvolvidas
 ## 📂 Estrutura de Pastas
 
-- **Componentes e JSX**: Estrutura modular e reutilizável com `HabitCard`, `HabitList` e `Panel`.
-- **Composição sobre Herança**: Utilização de `children` para criação de containers visuais flexíveis.
-- **Gerenciamento de Estado**: Estado centralizado com `useState` e atualizações imutáveis com `.map()` e *spread operator*.
-- **Formulários Controlados**: Cadastro com validação defensiva e identificador único via `crypto.randomUUID()`.
-- **Ciclo de Vida e Efeitos**: Persistência no `localStorage`, atualização dinâmica do título da aba com função de limpeza (*cleanup*).
-- **Estado Global com Contexto**: Distribuição de dados e handlers via `createContext`, `HabitsProvider` e `useContext`, eliminando *prop drilling*.
-- **Roteamento SPA**:
-  - `BrowserRouter`, `Routes` e `Route` (React Router).
-  - Navegação declarativa com `NavLink` (estilo ativo) e `Link`.
-  - Rotas aninhadas e layouts compartilhados com `<Outlet />`.
-  - Parâmetros dinâmicos de rota (`/habitos/:habitId`) com `useParams` e navegação programática com `useNavigate`.
-  - Rota protegida com *guard* didático (`ProtectedProgressRoute`).
-  - Rota curinga `*` com página 404 (`NotFoundPage`).
-- **Comunicação Assíncrona e HTTP**:
-  - Consumo de API externa via `fetch` nativo no serviço `habitSuggestions.js`.
-  - Modelagem com máquina de estados (`idle`, `loading`, `success`, `error`).
-  - Cancelamento de requisições com `AbortController` e tratamento de `AbortError`.
-  - Botão de re-tentativa (*retry*) e tratamento diferenciado para listas vazias.
 ```
 src/
 ├── components/
