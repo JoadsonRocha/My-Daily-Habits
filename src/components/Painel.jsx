@@ -10,3 +10,4 @@ export default function Painel({ title, children }) {
     </section>
   );
 }
+

@@ -34,3 +34,4 @@ export const CATEGORIAS_VALIDAS = [
   { id: "jardim", rotulo: "Jardim e Horta" },
   { id: "doacao", rotulo: "Doações e Apoio" },
 ];
+

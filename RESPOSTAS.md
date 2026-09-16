@@ -165,3 +165,4 @@ https://react.dev/learn/synchronizing-with-effects#how-to-handle-the-effect-firi
 
 **No meu código:**
 `src/main.jsx` (onde o `<StrictMode>` está configurado) e `src/context/TarefasContext.jsx` (na limpeza do título da aba do navegador).
+

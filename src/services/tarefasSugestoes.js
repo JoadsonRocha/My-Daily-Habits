@@ -31,3 +31,4 @@ export async function fetchSugestoesTarefas({ signal } = {}) {
     concluida: Boolean(item.completed),
   }));
 }
+
